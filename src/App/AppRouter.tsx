@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, RouteProps } from 'react-router-dom';
 
-import { MainView } from '../views';
+import { MainView, ItemView } from '../views';
 import { MAIN_VIEW, ITEM_VIEW } from '../endpoints';
 
 type TRoot = {
@@ -20,7 +20,7 @@ export const roots: TRoot[] = [
   },
   {
     key: 'item',
-    component: MainView,
+    component: ItemView,
     path: ITEM_VIEW,
     exact: true,
   },

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Text } from '../../components';
-import ListStyled, { ListItem } from '../../components/content/List/ListStyled';
+import { Text } from '../../components';
+import ListStyled, { LinkItem, ListItem } from '../../components/content/List/ListStyled';
 // import List from '../../components/content/List';
 import { DATA } from '../../constants/data';
 import { ITEM_VIEW } from '../../endpoints';
@@ -21,17 +20,15 @@ export default function MainView(): JSX.Element {
           params.set('id', String(id));
 
           return (
-            <Link to={`${ITEM_VIEW}?${params.toString()}`} key={id}>
-              <Button>
-                <ListItem>
-                  <input type="checkbox" checked={isUnread} />
-                  <Text>{from}</Text>
-                  <Text>{snippet}</Text>
-                  <Text>{sentDate}</Text>
-                  <Text>{isUnread}</Text>
-                </ListItem>
-              </Button>
-            </Link>
+            <ListItem>
+              <input type="checkbox" checked={isUnread} />
+              <LinkItem to={`${ITEM_VIEW}?${params.toString()}`} key={id}>
+                <Text>{from}</Text>
+                <Text>{snippet}</Text>
+                <Text>{sentDate}</Text>
+                <Text>{isUnread}</Text>
+              </LinkItem>
+            </ListItem>
           );
         })}
       </ListStyled>

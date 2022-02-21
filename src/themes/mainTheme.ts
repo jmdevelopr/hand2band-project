@@ -12,7 +12,7 @@ const size = {
   m: 16,
   ml: 20,
   l: 24,
-}
+};
 
 const typography = {
   textSmall: {
