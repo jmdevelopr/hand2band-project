@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, RouteProps } from 'react-router-dom';
 
 import { MainView } from '../views';
-import { MAIN_VIEW } from '../endpoints';
+import { MAIN_VIEW, ITEM_VIEW } from '../endpoints';
 
 type TRoot = {
   key: string;
@@ -11,7 +11,20 @@ type TRoot = {
   exact?: boolean;
 };
 
-export const roots: TRoot[] = [{ key: 'main', component: MainView, path: MAIN_VIEW, exact: true }];
+export const roots: TRoot[] = [
+  {
+    key: 'main',
+    component: MainView,
+    path: MAIN_VIEW,
+    exact: true,
+  },
+  {
+    key: 'item',
+    component: MainView,
+    path: ITEM_VIEW,
+    exact: true,
+  },
+];
 
 export function mapRoots(rootsList: TRoot[]): JSX.Element[] {
   return rootsList.map(({ key, exact, path, component }) => (
