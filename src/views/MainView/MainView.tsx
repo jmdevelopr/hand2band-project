@@ -6,7 +6,7 @@ import countPropertiesFromObjectArray from '../../compositions/countPropertiesFr
 import { DATA } from '../../constants/data';
 import { ITEM_VIEW } from '../../endpoints';
 import { IDataItem } from '../../types/data';
-import MainViewStyled from './MainViewStyled';
+import MainViewStyled, { Title } from './MainViewStyled';
 
 interface IHandleRead {
   id: number;
@@ -33,9 +33,10 @@ export default function MainView(): JSX.Element {
 
   return (
     <MainViewStyled>
-      <Text typography="textSmall" color="black">
-        You have {countPropertiesFromObjectArray<IDataItem>({ obj: data, property: 'is_unread', value: true })} unread items.
-      </Text>
+      <Title as="h5" typography="textSmall" color="black">
+        You have {countPropertiesFromObjectArray<IDataItem>({ obj: data, property: 'is_unread', value: true })} unread
+        items.
+      </Title>
       <ListStyled>
         {data.map((dataItem) => {
           const { id, is_unread: isUnread, from, snippet, sent_date: sentDate } = dataItem;
@@ -47,10 +48,9 @@ export default function MainView(): JSX.Element {
             <ListItem key={id}>
               <input type="checkbox" onChange={() => handleRead({ id })} checked={!isUnread} />
               <LinkItem to={`${ITEM_VIEW}?${params.toString()}`} onClick={() => handleRead({ id, readValue: false })}>
-                <Text>{from}</Text>
-                <Text>{snippet}</Text>
-                <Text>{sentDate}</Text>
-                <Text>{isUnread}</Text>
+                {from && <Text>From: {from}</Text>}
+                {snippet && <Text> | {snippet} </Text>}
+                {sentDate && <Text> | sent at: {sentDate}</Text>}
               </LinkItem>
             </ListItem>
           );

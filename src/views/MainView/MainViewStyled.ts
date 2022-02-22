@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Text } from '../../components';
 
 export default styled.div(
   ({
@@ -10,3 +11,7 @@ export default styled.div(
     background-color: ${backgroundColor};
   `,
 );
+
+export const Title = styled(Text)`
+  text-align: center;
+`;
