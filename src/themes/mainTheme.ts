@@ -15,11 +15,23 @@ const size = {
 };
 
 const typography = {
+  textExtraSmall: {
+    fontFamily: 'montserrat-regular, sans-serif',
+    fontFamilyBold: 'montserrat-medium, sans-serif',
+    fontSize: 12,
+    lineHeight: 14,
+  },
   textSmall: {
     fontFamily: 'montserrat-regular, sans-serif',
     fontFamilyBold: 'montserrat-medium, sans-serif',
     fontSize: 16,
     lineHeight: 20,
+  },
+  textMedium: {
+    fontFamily: 'montserrat-regular, sans-serif',
+    fontFamilyBold: 'montserrat-medium, sans-serif',
+    fontSize: 20,
+    lineHeight: 24,
   },
   button: {
     fontFamily: 'montserrat-medium, sans-serif',
